@@ -13,7 +13,7 @@ import (
 )
 
 // @title Subscriptions API
-// @version 1.0
+// @version 1.1
 // @description REST API для управления подписками
 // @host 195.133.20.34:8081
 // @BasePath /

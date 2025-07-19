@@ -10,12 +10,12 @@ import (
 )
 
 type Subscription struct {
-	ID          uuid.UUID  `json:"id"`
-	ServiceName string     `json:"service_name"`
-	Price       int        `json:"price"`
-	UserID      uuid.UUID  `json:"user_id"`
-	StartDate   MonthYear  `json:"start_date"`
-	EndDate     *MonthYear `json:"end_date,omitempty"`
+	ID          uuid.UUID  `json:"id" example:"f4e2c8ad-d773-4d39-85b1-a63d2b2cb41f"`
+	ServiceName string     `json:"service_name"  example:"Spotify"`
+	Price       int        `json:"price" example:"199"`
+	UserID      uuid.UUID  `json:"user_id" example:"00000000-0000-0000-0000-000000000001"`
+	StartDate   MonthYear  `json:"start_date" swaggertype:"string" example:"07-2025"`
+	EndDate     *MonthYear `json:"end_date,omitempty" swaggertype:"string" example:"12-2025"`
 }
 type MonthYear struct {
 	time.Time

@@ -1,23 +1,24 @@
 basePath: /
 definitions:
-  model.MonthYear:
-    properties:
-      time.Time:
-        type: string
-    type: object
   model.Subscription:
     properties:
       end_date:
-        $ref: '#/definitions/model.MonthYear'
+        example: 12-2025
+        type: string
       id:
+        example: f4e2c8ad-d773-4d39-85b1-a63d2b2cb41f
         type: string
       price:
+        example: 199
         type: integer
       service_name:
+        example: Spotify
         type: string
       start_date:
-        $ref: '#/definitions/model.MonthYear'
+        example: 07-2025
+        type: string
       user_id:
+        example: 00000000-0000-0000-0000-000000000001
         type: string
     type: object
 host: 195.133.20.34:8081
@@ -25,10 +26,11 @@ info:
   contact: {}
   description: REST API для управления подписками
   title: Subscriptions API
-  version: "1.0"
+  version: "1.1"
 paths:
   /subscriptions:
     get:
+      description: Возвращает все подписки из базы данных
       produces:
       - application/json
       responses:
@@ -48,6 +50,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: Создаёт новую подписку для пользователя
       parameters:
       - description: Данные подписки
         in: body

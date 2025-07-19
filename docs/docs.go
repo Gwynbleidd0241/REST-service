@@ -17,6 +17,7 @@ const docTemplate = `{
     "paths": {
         "/subscriptions": {
             "get": {
+                "description": "Возвращает все подписки из базы данных",
                 "produces": [
                     "application/json"
                 ],
@@ -43,6 +44,7 @@ const docTemplate = `{
                 }
             },
             "post": {
+                "description": "Создаёт новую подписку для пользователя",
                 "consumes": [
                     "application/json"
                 ],
@@ -304,34 +306,32 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "model.MonthYear": {
-            "type": "object",
-            "properties": {
-                "time.Time": {
-                    "type": "string"
-                }
-            }
-        },
         "model.Subscription": {
             "type": "object",
             "properties": {
                 "end_date": {
-                    "$ref": "#/definitions/model.MonthYear"
+                    "type": "string",
+                    "example": "12-2025"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "f4e2c8ad-d773-4d39-85b1-a63d2b2cb41f"
                 },
                 "price": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 199
                 },
                 "service_name": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Spotify"
                 },
                 "start_date": {
-                    "$ref": "#/definitions/model.MonthYear"
+                    "type": "string",
+                    "example": "07-2025"
                 },
                 "user_id": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "00000000-0000-0000-0000-000000000001"
                 }
             }
         }
@@ -340,7 +340,7 @@ const docTemplate = `{
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
-	Version:          "1.0",
+	Version:          "1.1",
 	Host:             "195.133.20.34:8081",
 	BasePath:         "/",
 	Schemes:          []string{},
