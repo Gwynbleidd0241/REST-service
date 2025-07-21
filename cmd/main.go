@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "effective_mobile/docs"
+	_ "effective_mobile/api"
 	"effective_mobile/internal/config"
 	"effective_mobile/internal/db"
 	"effective_mobile/internal/handler"
